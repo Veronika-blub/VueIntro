@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Vue Mastery</title>
-    <!-- Import Styles -->
-    <link rel="stylesheet" href="./assets/styles.css" />
-    <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>  
-  </head>
-  <body>
-    <div product-container></div>
-    <div id="app">
-      <h1>{{ product }}</h1>
-    </div>
-    <div>
-      <p>Ajouter une description à l'objet de données.</p>
-    </div>
 
-    <!-- Import Js -->
-    <script src="./main.js"></script>
-     <!-- Mount App -->
-      <script>
-        const mountedApp = app.mount('#app')
-      </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue Mastery</title>
+  <!-- Import Styles -->
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <!-- Import Vue.js -->
+  <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="nav-bar"></div>
+
+    <div class="product-display">
+      <div class="product-container">
+        <div class="product-image">
+          <!-- image goes here -->
+        </div>
+        <div class="product-info">
+          <h1>{{ product }}</h1>
+        </div>
+        <div>
+          <p>Ajouter une description à l'objet de données.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import App -->
+  <script src="./main.js"></script>
+
+  <!-- Mount App -->
+  <script>
+    const mountedApp = app.mount('#app')
+  </script>
+</body>
+
 </html>
