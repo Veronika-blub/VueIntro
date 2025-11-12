@@ -42,13 +42,7 @@
 
 
         <div class="gadget-container">
-            <div class="gadget" v-for="(gadget, index) in gadgets" :key="gadget.id">
-                <img :src="gadget.image" :alt="gadget.name" />
-                <h2>{{ gadget.name }}</h2>
-                <p>{{ gadget.price }} €</p>
-                <p>{{ formatStock(gadget.inStock) }}</p>
-                <button @click="addToCart(gadget)">Ajouter au panier</button>
-            </div>
+            <gadget-display :gadget="gadget" v-for="(gadget, index) in gadgets" :key="gadget.id"></gadget-display>
         </div>
     </div>
 
@@ -56,6 +50,8 @@
 
     <!-- Import App -->
     <script src="./main.js"></script>
+
+    <script src="./components/GadgetDisplay.js"></script>
 
     <!-- Mount App -->
     <script>

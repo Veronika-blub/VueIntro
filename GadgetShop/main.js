@@ -2,14 +2,9 @@ const app = Vue.createApp({
     data() {
         return {
             details: "Découvrez les derniers gadgets électroniques de haute technologie!",
-            //["Free Shipping", "30-day Return", "1 Year Warranty"],
             title: "Vue Gadget Shop",
             cart: [],
             total: 0,
-            // name: 'Smartphone XZ',
-            // priceInit: 799,
-            // image: "./assets/phone.jpg",
-            // inStock: true,
             gadgets: [
                 { id: 1, name: "Smartphone XZ", price: 799, image: "./assets/phone.jpg", inStock: true },
                 { id: 2, name: "Laptop Mat' shatal", price: 999, image: "./assets/laptop.jpg", inStock: false },
@@ -24,9 +19,7 @@ const app = Vue.createApp({
         removeFromCart(gadget, index) {
             this.cart.splice(index, 1)
         },
-        formatStock(inStock) {
-            return inStock ? '✅ En stock' : '❌ En rupture de stock'
-        }
+
     },
     computed: {
         price() {
