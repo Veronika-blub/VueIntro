@@ -17,14 +17,27 @@
 
         <div class="cart">
             <h2>🛒 Mon Panier {{cart.length}}</h2>
-            
+
             <ul>
                 <li v-for="item in cart" :key="item.id">
                     <p>{{item.name}}</p>
                     <button class="remove-btn" @click="removeFromCart(item, index)">❌</button>
                 </li>
             </ul>
-            <p>Votre panier est vide.</p>
+
+            <!-- ternary operator reduction 10% -->
+            <!-- <p>Total: {{cartTotal > 1000 ? cartTotal * 0.9 : cartTotal}}</p> -->
+
+            <!-- Affichage du total -->
+            <h3>
+                💰 Total : <span>{{cartTotal}}€</span>
+                <span v-if="cartTotal > 1000">
+                    <s>{{cartTotal}}€</s> ➝
+                    <strong>{{cartTotal * 0.9}}€ (-10%)</strong>
+                </span>
+            </h3>
+
+            <p v-if="cart.length === 0">Votre panier est vide.</p>
         </div>
 
 
@@ -33,7 +46,7 @@
                 <img :src="gadget.image" :alt="gadget.name" />
                 <h2>{{ gadget.name }}</h2>
                 <p>{{ gadget.price }} €</p>
-                <p>{{ gadget.stock }}</p>
+                <p>{{ formatStock(gadget.inStock) }}</p>
                 <button @click="addToCart(gadget)">Ajouter au panier</button>
             </div>
         </div>
