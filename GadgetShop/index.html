@@ -14,19 +14,17 @@
     <div id="app">
         <h1>{{ title }}</h1>
         <p>{{ details }}</p>
-        <div class="gadget">
-            <div>
-                <img :src="image" :alt="name" />
-            </div>
-            <div class='gadgetInfo'>
-                <h2>{{ name }}</h2>
-                <p class="price">{{ price }}</p>
-                <!-- ternary operator -->
-                <p>{{ !inStock ? '❌ En rupture de stock' : '✅ En stock' }}</p>
+        <div class="gadget-container">
+            <div class="gadget" v-for="gadget in gadgets" :key="gadget.id">
+                <img :src="gadget.image" :alt="gadget.name" />
+                <h2>{{ gadget.name }}</h2>
+                <p>{{ gadget.price }} €</p>
+                <p>{{ gadget.stock }}</p>
             </div>
         </div>
     </div>
-   
+
+
 
     <!-- Import App -->
     <script src="./main.js"></script>
