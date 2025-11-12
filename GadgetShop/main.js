@@ -4,6 +4,7 @@ const app = Vue.createApp({
             details: "Découvrez les derniers gadgets électroniques de haute technologie!",
             //["Free Shipping", "30-day Return", "1 Year Warranty"],
             title: "Vue Gadget Shop",
+            cart: [],
             // name: 'Smartphone XZ',
             // priceInit: 799,
             // image: "./assets/phone.jpg",
@@ -16,14 +17,19 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        
+        addToCart(gadget) {                    
+            this.cart.push(gadget)
+        },
+        removeFromCart(gadget, index) {
+            this.cart.splice(index, 1)
+        },
     },
     computed:{
         price() {
             return this.priceInit + ' €'
         },
         stock() {
-            return this.inStock ? '✅ En stock' : '❌ En rupture de stock'
+            return ''+ this.inStock ? '✅ En stock' : '❌ En rupture de stock'
         }
     }
 })
