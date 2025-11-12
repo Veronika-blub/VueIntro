@@ -14,7 +14,17 @@
     <div id="app">
         <h1>{{ title }}</h1>
         <p>{{ details }}</p>
+        <div class="gadget">
+            <div>
+                <img :src="image" :alt="name" />
+            </div>
+            <div class='gadgetInfo'>
+                <h2>{{ name }}</h2>
+                <p class="price">{{ price }}</p>
+            </div>
+        </div>
     </div>
+   
 
     <!-- Import App -->
     <script src="./main.js"></script>
