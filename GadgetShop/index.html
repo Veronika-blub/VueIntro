@@ -42,7 +42,8 @@
 
 
         <div class="gadget-container">
-            <gadget-display :gadget="gadget" v-for="(gadget, index) in gadgets" :key="gadget.id"></gadget-display>
+            <gadget-display v-for="gadget in gadgets" :key="gadget.id" :gadget="gadget" @add-to-cart="addToCart">
+            </gadget-display>
         </div>
     </div>
 

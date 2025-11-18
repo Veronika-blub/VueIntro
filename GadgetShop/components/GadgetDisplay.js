@@ -11,11 +11,14 @@ app.component("gadget-display", {
             </div>
     `,
     methods: {
-        addToCart() {
-            console.log("cart");
-        },
         formatStock(inStock) {
             return inStock ? '✅ En stock' : '❌ En rupture de stock'
+        },
+
+        addToCart() {
+            this.$emit("add-to-cart", this.gadget); // Émet un événement pour ajouter au 
+            panier
         }
+
     }
 });

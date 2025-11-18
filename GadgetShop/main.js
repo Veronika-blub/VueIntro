@@ -14,7 +14,7 @@ const app = Vue.createApp({
     },
     methods: {
         addToCart(gadget) {
-            this.cart.push(gadget)
+            this.cart.push(gadget); // Ajoute l'article au panier 
         },
         removeFromCart(gadget, index) {
             this.cart.splice(index, 1)
@@ -26,7 +26,7 @@ const app = Vue.createApp({
             return this.priceInit + ' €'
         },
         cartTotal() {
-            return this.cart.reduce((total, gadget) => total += gadget.price, 0) 
+            return this.cart.reduce((total, gadget) => total += gadget.price, 0)
         },
 
     }
