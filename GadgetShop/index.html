@@ -15,30 +15,10 @@
         <h1>{{ title }}</h1>
         <p>{{ details }}</p>
 
-        <div class="cart">
-            <h2>🛒 Mon Panier {{cart.length}}</h2>
+<div class="cart-container">
+    <cart-display :cart="cart" :cart-total="cartTotal" @remove-from-cart="removeFromCart"></cart-display>
 
-            <ul>
-                <li v-for="item in cart" :key="item.id">
-                    <p>{{item.name}}</p>
-                    <button class="remove-btn" @click="removeFromCart(item, index)">❌</button>
-                </li>
-            </ul>
-
-            <!-- ternary operator reduction 10% -->
-            <!-- <p>Total: {{cartTotal > 1000 ? cartTotal * 0.9 : cartTotal}}</p> -->
-
-            <!-- Affichage du total -->
-            <h3>
-                💰 Total : <span>{{cartTotal}}€</span>
-                <span v-if="cartTotal > 1000">
-                    <s>{{cartTotal}}€</s> ➝
-                    <strong>{{cartTotal * 0.9}}€ (-10%)</strong>
-                </span>
-            </h3>
-
-            <p v-if="cart.length === 0">Votre panier est vide.</p>
-        </div>
+</div>
 
 
         <div class="gadget-container">
@@ -53,7 +33,7 @@
     <script src="./main.js"></script>
 
     <script src="./components/GadgetDisplay.js"></script>
-
+<script src="./components/CartDisplay.js"></script>
     <!-- Mount App -->
     <script>
         const mountedApp = app.mount('#app')

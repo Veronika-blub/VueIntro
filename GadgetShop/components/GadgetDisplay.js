@@ -16,8 +16,7 @@ app.component("gadget-display", {
         },
 
         addToCart() {
-            this.$emit("add-to-cart", this.gadget); // Émet un événement pour ajouter au 
-            panier
+            this.$emit("add-to-cart", this.gadget); // Émet un événement pour ajouter au panier
         }
 
     }
