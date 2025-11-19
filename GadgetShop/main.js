@@ -14,6 +14,7 @@ const app = Vue.createApp({
     },
     methods: {
         addToCart(gadget) {
+            // if(this.gadget.name === cart){
             this.cart.push(gadget); // Ajoute l'article au panier 
         },
         removeFromCart(gadget, index) {
