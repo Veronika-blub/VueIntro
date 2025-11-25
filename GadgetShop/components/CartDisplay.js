@@ -1,13 +1,18 @@
 app.component("cart-display", {
-    props: ["cart", "cartTotal"], // Le cart et cartTotal sont passés en tant que props depuis le parent
-    template: /*html*/ `
+  props: ["cart", "cartTotal"], // Le cart et cartTotal sont passés en tant que props depuis le parent
+  template: /*html*/ `
 
         <div class="cart">
             <h2>🛒 Mon Panier {{cart.length}}</h2>
 
             <ul>
-                <li v-for="item in cart" :key="item.id">
+                <li v-for="item in cart" :key="item.id" >
                     <p>{{item.name}}</p>
+                    <div v-if="item.quantity > 0" class="quatity"> 
+                        <button class="quantity-btn">➖</button>
+                        <span>{{item.quantity}}</span>
+                        <button class="quantity-btn" @click="addToCart(item)">➕</button>
+                    </div>
                     <button class="remove-btn" @click="removeFromCart(item, index)">❌</button>
                 </li>
             </ul>
@@ -26,15 +31,14 @@ app.component("cart-display", {
         </div>
     `,
 
-    methods: {
-        removeFromCart(item, index) {
-            this.$emit("remove-from-cart", item, index);
-        }
+  methods: {
+    removeFromCart(item, index) {
+      this.$emit("remove-from-cart", item, index);
     },
-    computed: {
-        discountedTotal() {
-            return (this.cartTotal * 0.9).toFixed(2);
-        }
-    }
-}
-);
+  },
+  computed: {
+    discountedTotal() {
+      return (this.cartTotal * 0.9).toFixed(2);
+    },
+  },
+});

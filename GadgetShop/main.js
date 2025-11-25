@@ -14,20 +14,23 @@ const app = Vue.createApp({
     },
     methods: {
         addToCart(gadget) {
-            // if(this.gadget.name === cart){
-            this.cart.push(gadget); // Ajoute l'article au panier 
+            const existingItem = this.cart.find(item => item.id === gadget.id);
+                existingItem.quantity++;
+            this.cart.push({...gadget, quantity: 1})
         },
         removeFromCart(gadget, index) {
             this.cart.splice(index, 1)
         },
-
+        formatStock(inStock) {
+            return inStock ? '✅ En stock' : '❌ En rupture de stock'
+        }
     },
     computed: {
         price() {
             return this.priceInit + ' €'
         },
         cartTotal() {
-            return this.cart.reduce((total, gadget) => total += gadget.price, 0)
+            return this.cart.reduce((total, gadget) => total += gadget.price * gadget.quantity, 0) 
         },
 
     }
